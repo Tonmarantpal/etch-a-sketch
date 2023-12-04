@@ -1,14 +1,19 @@
 const container = document.querySelector(".container");
 const buttons = document.querySelectorAll("button");
 let colour = "white";
-let lastColour = "";
+let lastColour = "white";
 
 generateGrids(1)
 
 buttons.forEach((buttons) => {
     buttons.addEventListener("click", (e) => {
-        lastColour = colour;
-        colour = e.target.innerText.toLowerCase()
+        if (e.target.innerText != "ERASE") {
+            lastColour = colour;
+            colour = e.target.innerText.toLowerCase()
+        } else {
+            eraseGrid();
+        }
+        
     })
 })
 
@@ -31,3 +36,9 @@ function generateGrids(n) {
     })
 }
 
+
+function eraseGrid() {
+    while (container.firstChild) {
+        container.removeChild(container.firstChild)
+    }
+}

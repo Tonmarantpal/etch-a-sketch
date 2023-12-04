@@ -1,3 +1,7 @@
+* {
+    margin: 0px;
+}
+
 body {
     display: flex;
     justify-content: center;
@@ -7,6 +11,7 @@ body {
 .container {
     height: 720px;
     width: 720px;
-    display: flex;
-    
+    display: flex;  
+    flex-wrap: wrap;  
 }
+

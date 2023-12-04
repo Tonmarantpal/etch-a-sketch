@@ -1,9 +1,21 @@
 const container = document.querySelector(".container");
 const buttons = document.querySelectorAll("button");
+const slider = document.querySelector("input");
+const p = document.querySelector("p");
 let colour = "white";
 let lastColour = "white";
+let n = 1;
+p.textContent = `You have selected ${n} x ${n} grid!`
 
-generateGrids(1)
+
+generateGrids(n)
+
+slider.addEventListener("input", (e) => {
+    n = e.target.value
+    p.textContent = `You have selected ${n} x ${n} grid!`
+    eraseGrid();
+    generateGrids(n)
+})
 
 buttons.forEach((buttons) => {
     buttons.addEventListener("click", (e) => {
